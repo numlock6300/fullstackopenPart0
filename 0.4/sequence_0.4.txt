@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+   browser->>server: POST request https://studies.cs.helsinki.fi/exampleapp/new_note
+   server-->>browser: Status Code 302(Redirect to /exampleapp/notes)
+   browser->>server: GET request https://studies.cs.helsinki.fi/exampleapp/notes
+   server-->>browser: HTML document
+   browser->>server: GET request https://studies.cs.helsinki.fi/exampleapp/main.css
+   server-->>browser: main.css
+   browser->>server: GET request https://studies.cs.helsinki.fi/exampleapp/main.js
+   server-->>browser: main.js
+   Note over browser: The browser executing code in main.js to fetch JSON data from server
+   browser->>server: GET request https://studies.cs.helsinki.fi/exampleapp/data.json
+   server-->>browser: JSON data
+   Note over browser: The browser executes function to render notes
