@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+   browser->>server: GET request https://studies.cs.helsinki.fi/exampleapp/spa
+   server-->>browser: HTML document
+   browser->>server: GET request https://studies.cs.helsinki.fi/exampleapp/main.css
+   server-->>browser: main.css
+   browser->>server: GET request https://studies.cs.helsinki.fi/exampleapp/spa.js
+   server-->>browser: spa.js
+   Note over browser: The browser executing code in spa.js to fetch JSON data from server
+   browser->>server: GET request https://studies.cs.helsinki.fi/exampleapp/data.json
+   server-->>browser: JSON data
+   Note over browser: The browser executes function to render notes
