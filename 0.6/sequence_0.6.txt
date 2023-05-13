@@ -1,0 +1,7 @@
+sequenceDiagram
+    participant browser
+    participant server
+   Note over browser: The browser executes js file. preventDefault()  method  prevents form from sending request to the server.
+   Note over browser: Then event handler function creates new note and add it to the list and renders list. After that note sends to the server.
+   browser->>server: POST request https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+   server-->>browser: Status code 201 created
